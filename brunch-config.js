@@ -1,75 +1,66 @@
 'use strict'
 exports.config = {
     paths: {
-        watched: ['src'],
+        watched: ['public'],
         public: 'public'
     },
     files: {
         javascripts: {
             joinTo: {
-                // 'js/vendor.min.js': /^node_modules/,
-                'js/app.min.js': /^src\/js/
+                'js/vendor.min.js': /^node_modules/,
+                'js/app.min.js': /^public\/js/
             },
             order: {
                 before: [
-                    // 'node_modules/angular/*.js',
-                    // 'src/libs/**.min.js',
-                    'src/js/app.js',
-                    'src/js/**/*.md.js',
-                    'src/js/components/**/*.js'
+                    'public/libs/*.js',
+                    'public/js/app.js',
+                    'public/js/**/*.md.js',
+                    'public/js/components/**/*.js'
                 ]
             }
         }
-        // ,
-        // stylesheets: {
-        //     joinTo: {
-        //         'css/vendor.min.css': [],
-        //         'css/app.min.css': /^public\/scss/
-        //     }
-        // }
     },
+
     npm: {
-        // enabled: false
         enabled: true,
         compilers: ['angular', 'angular-ui-router']
     },
-    conventions: {
-        assets: /static[\\/]/
-        // ,
-        // ignored: ['src/**/*.min.js']
-    },
     modules: {
         wrapper: false,
-        definition: false
+        definition: 'commonjs'
+    },
+    conventions: {
+        ignored: ['public/**/*.min.js']
     },
     plugins: {
+        copycat: {
+            "js": ['node_modules/angular/angular.min.js',
+            'node_modules/angular-ui-router/release/angular-ui-router.min.js'],
+            verbose: true,
+            onlyChanged: true
+        },
         autoReload: {
-            enabled: {
-                css: 'on',
-                js: 'on',
-                json: 'on'
+            match: {
+
+                javascripts: ['*.js']
             }
         }
-        // ,
-        // babel: {
-        //     ignore: [
-        //         /^(node_modules)/
-        //     ]
-        // }
     },
     overrides: {
         production: {
-            sourceMaps: false,
+            sourceMaps: true,
             plugins: {
                 autoReload: {
-                    enabled: false
+                    enabled: true
                 }
             }
         }
-    },
-    server: {
-        path: 'node server.js',
-        port: 8008,
-        run: true
     }
+    // plugins: {
+    //     babel: {
+    //         ignore: [
+    //             /^(node_modules)/
+    //         ]
+    //     }
+    // }
 }
