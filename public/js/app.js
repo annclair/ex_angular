@@ -3,7 +3,7 @@
 })(angular.module('app', [
   // 'ui.router',
   // 'app.views',
-  // 'app.bidule',
+  'app.bidule',
   // 'app.services',
   // 'app.config'
 
