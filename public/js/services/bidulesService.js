@@ -18,4 +18,4 @@
       }
   })
 
-})(angular.module('app.services'))
+})(require('angular').module('app.services'))

@@ -6,5 +6,4 @@
   'app.bidule',
   'app.services',
   'app.config'
-
 ]))

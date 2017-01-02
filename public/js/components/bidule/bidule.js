@@ -2,7 +2,7 @@
     'use strict'
 
     app.component("bidule", {
-        templateUrl: 'js/components/bidule/bidule.html',
+        templateUrl: 'js/components/bidule/bidule.html'        
     })
 
-})(angular.module('app.bidule'))
+})(require('angular').module('app.bidule'))

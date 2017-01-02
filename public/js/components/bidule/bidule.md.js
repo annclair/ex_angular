@@ -1,4 +1,9 @@
 ((app) => {
     'use strict'
-
-})(angular.module('app.bidule', []))
+    app.config(['$stateProvider', ($stateProvider) => {
+        $stateProvider.state('app.bidule', {
+            url:'/',
+            template:'<bidule></bidule>'
+        })
+    }])
+})(require('angular').module('app.bidule', []))

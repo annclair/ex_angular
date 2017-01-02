@@ -8,10 +8,5 @@
             abstract: true,
             template: '<ui-view></ui-view>'
         })
-        // .state('app.bidule', {
-        //     url: '/',
-        //     template: '<bidule></bidule>'
-        // })
-
     }])
-})(angular.module('app.config'))
+})(require('angular').module('app.config'))

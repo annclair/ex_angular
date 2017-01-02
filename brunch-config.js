@@ -20,7 +20,6 @@ exports.config = {
             }
         }
     },
-
     npm: {
         enabled: true,
         compilers: ['angular', 'angular-ui-router']
